@@ -180,7 +180,7 @@ if __name__ == "__main__":
         print("Validation accuracy for epoch {}: {}".format(epoch + 1, correct / total))
         validation_accuracy = correct/total
 
-        if validation_accuracy < last_validation_accuracy and trainning_accuracy > last_train_accuracy:
+        if epoch >= args.epochs or (validation_accuracy < last_validation_accuracy and trainning_accuracy > last_train_accuracy):
             stopping_condition=True
             print("Training done to avoid overfitting!")
             print("Best training accuracy is:", last_train_accuracy)
